@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 
 
-def get_num():
+def get_all_comic_number():
     url = "https://xkcd.com/info.0.json"
     response = requests.get(url)
     response.raise_for_status()
@@ -15,7 +15,7 @@ def get_num():
 
 def loading_comic_page():
     filename = "python_comics.png"
-    comic_num = random.randint(1, get_num())
+    comic_num = random.randint(1, get_all_comic_number())
     url = f"https://xkcd.com/{comic_num}/info.0.json"
     response = requests.get(url)
     response.raise_for_status()
