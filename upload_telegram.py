@@ -37,10 +37,10 @@ def loading_auto(tg_token, chat_id, comment):
 
 def main():
     load_dotenv()
-    comment = comic_page_loading()
+    comment = loading_comic_page()
     tg_token = os.environ["TG_TOKEN"]
     chat_id = os.environ["CHAT_ID"]
-    auto_loading(tg_token, chat_id, comment)
+    loading_auto(tg_token, chat_id, comment)
 
 
 if __name__ == "__main__":
