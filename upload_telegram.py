@@ -20,10 +20,10 @@ def loading_comic_page():
     response = requests.get(url)
     response.raise_for_status()
     comic_url = response.json()["img"]
-    response_comic = requests.get(comic_url)
+    comic_response = requests.get(comic_url)
     comment = response.json()["alt"]
     with open(filename, "wb") as file:
-        file.write(response_comic.content)
+        file.write(comic_response.content)
     return comment
 
 
