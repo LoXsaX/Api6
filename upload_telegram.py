@@ -32,7 +32,6 @@ def loading_auto(tg_token, chat_id, comment):
     bot = telegram.Bot(token=tg_token)
     with open(filename, "rb") as file:
         bot.send_photo(chat_id, photo=file, caption=comment)
-    os.remove("python_comics.png")
 
 
 def main():
@@ -41,6 +40,7 @@ def main():
     tg_token = os.environ["TG_TOKEN"]
     chat_id = os.environ["CHAT_ID"]
     loading_auto(tg_token, chat_id, comment)
+    os.remove("python_comics.png")
 
 
 if __name__ == "__main__":
