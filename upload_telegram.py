@@ -13,7 +13,7 @@ def get_all_comic_number():
     return all_number
 
 
-def loading_comic_page():
+def loading_comment():
     filename = "python_comics.png"
     comic_num = random.randint(1, get_all_comic_number())
     url = f"https://xkcd.com/{comic_num}/info.0.json"
@@ -27,7 +27,7 @@ def loading_comic_page():
     return comment
 
 
-def loading_auto(tg_token, chat_id, comment):
+def send_photo_auto(tg_token, chat_id, comment):
     filename = "python_comics.png"
     bot = telegram.Bot(token=tg_token)
     with open(filename, "rb") as file:
@@ -36,10 +36,10 @@ def loading_auto(tg_token, chat_id, comment):
 
 def main():
     load_dotenv()
-    comment = loading_comic_page()
+    comment = loading_comment()
     tg_token = os.environ["TG_TOKEN"]
     chat_id = os.environ["CHAT_ID"]
-    loading_auto(tg_token, chat_id, comment)
+    send_photo_auto(tg_token, chat_id, comment)
     os.remove("python_comics.png")
 
 
